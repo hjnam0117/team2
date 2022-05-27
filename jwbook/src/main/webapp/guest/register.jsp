@@ -11,13 +11,13 @@
 	<br>
 	<center><b>도서 등록</b></center>
 	<br>
-	<table width="500" border="1" cellspacing="0" cellpadding="0" align="center"> 
+	<table width="600" border="1" cellspacing="0" cellpadding="0" align="center"> 
 		<tr>
-			<td width="300" align="center">도서 번호</td>
+			<td width="100" align="center">도서 번호</td>
 			<td width="500"><input type="text" size="20" maxlength="20" name="bookid"></td>
 		</tr>
 		<tr> 
-			<td width="300" align="center">도서 분야</td>
+			<td width="100" align="center">도서 분야</td>
 			<td width="500"><select name="category">
 				<option value="100">소설</option>
 				<option value="200">에세이</option>
@@ -28,29 +28,34 @@
 			</td>
 		</tr>
 		<tr> 
-			<td  width="300" align="center">도서 이름</td> 		
+			<td  width="100" align="center">도서 이름</td> 		
 		    <td  width="500"><input type="text" size="50" maxlength="50" name="name"></td>
 		</tr>
 		<tr>	
-		    <td  width="300" align="center">도서 저자</td> 
+		    <td  width="100" align="center">도서 저자</td> 
 			<td  width="500"><input type="text" size="30" maxlength="30" name="writer"></td>
 		</tr>
 		<tr>	
-		    <td  width="300" align="center">도서 설명</td> 
-			<td  width="500"><textarea name="descript" rows="13" cols="40"></textarea></td> 
+		    <td  width="100" align="center">도서 설명</td> 
+			<td  width="500"><textarea name="descript" rows="23" cols="60"></textarea></td> 
 		</tr>
 		<tr>	
-		    <td  width="300" align="center">도서 가격</td> 
+		    <td  width="100" align="center">도서 가격</td> 
 			<td  width="500"><input type="text" size="10" maxlength="10" name="price">원</td>
 		</tr>
 		<tr> 
-			<td  width="300" align="center">도서 재고</td>
+			<td  width="100" align="center">도서 재고</td>
 			<td  width="500"><input type="text" size="10" maxlength="5" name="stock">권</td> 
 		</tr>
 		<tr> 	
-	    	<td  width="300" align="center" >이미지</td> 
+	    	<td  width="100" align="center" >이미지</td> 
 			<td  width="500"><input type="file" name="image"></td> 
-		</tr> 
-	</table>
+		</tr>
+		<tr>       			
+			<td colspan=2 align="center"><input type="button" value="책등록" onclick="checkForm(this.form)">
+			<input type="reset" value="다시작성">
+			</td>
+		</tr>
+</table>
 </body>
 </html>

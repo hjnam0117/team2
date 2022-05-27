@@ -26,8 +26,8 @@
         	<img src="../images/pic.jpg" width="100%"/>
         </td>
     </tr>
-</table>
-<%@ include file="book.jsp" %>
+</table><br>
+<%@ include file="banner.jsp" %>
 <%@ include file="guest_bottom.jsp" %>     
 </body>
 </html>
