@@ -8,26 +8,27 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<title></title>
 	<style>
+	.sitelist > li {list-style-type: none; padding: 20px 80px 20px 20px; margin-bottom: 5px; border-bottom: 1px solid #efefef; font-size: 18px;}
 	* {margin:0;padding:0;}
 	.section input[id*="slide"] {display:none;}
-	.section .slidewrap {max-width:1100px;margin:40px auto;}
+	.section .slidewrap {max-width:1200px;margin:50px auto;}
 	.section .slidelist {white-space:nowrap;font-size:0;overflow:hidden;position:relative;}
-	.section .slidelist > li {display:inline-block;vertical-align:middle;width:100%;transition:all .5s;}
+	.section .slidelist > li {display:inline-block;vertical-align:middle;width:95%;transition:all .5s;}
 	.section .slidelist > li > a {display:block;position:relative;}
 	.section .slidelist > li > a img {width:30%;}
-	.section .slidelist label {position:absolute;z-index:10;top:50%;transform:translateY(-50%);padding:50px;cursor:pointer;}
-	.section .slidelist .textbox {position:absolute;z-index:1;top:50%;left:60%;transform:translate(-50%,-50%);line-height:1.6;text-align:center;}
+	.section .slidelist label {position:absolute;z-index:10;top:50%;transform:translateY(-60%);padding:50px;cursor:pointer;}
+	.section .slidelist .textbox {position:absolute;z-index:1;top:50%;left:60%;transform:translate(-55%,-55%);line-height:1.6;text-align:center;}
 	.section .slidelist .textbox h3 {font-size:36px;font-weight: bold;color:#000;transform:translateY(30px);transition:all .5s;}
 	.section .slidelist .textbox p {font-size:16px;color:#000;opacity:0;transform:translateY(30px);transition:all .5s;}
 	.section .slidelist .textbox .category {font-weight: bold;color:#00f;}
 	.section .slidelist .textbox .writer {font-weight: bold;color:#a0a0a0;}
 	
 	/* input에 체크되면 슬라이드 효과 */
-	.section input[id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
-	.section input[id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
-	.section input[id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
-	.section input[id="slide04"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-300%);}
-	.section input[id="slide05"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-400%);}
+	.section input[id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(10%);}
+	.section input[id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-90%);}
+	.section input[id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-190%);}
+	.section input[id="slide04"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-290%);}
+	.section input[id="slide05"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-390%);}
 
 	/* input에 체크되면 텍스트 효과 */
 	.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .textbox h3 {opacity:1;transform:translateY(0);}
@@ -63,8 +64,20 @@
 	</style>
 </head>
 <body>
-
-<div class="section">
+<table>
+<tr>
+	<td width="80"></td>
+	<td><div>
+		<p style="font-size:24px; padding:0px 20px 20px 20px">도서 사이트</p>
+		<ul class="sitelist">
+			<li><a href=http://www.kyobobook.co.kr/index.laf?>> 교보문고</a></li>
+			<li><a href=https://www.aladin.co.kr/home/welcome.aspx>> 알라딘</a></li>
+			<li><a href=https://www.ypbooks.co.kr/kor_index.yp>> 영풍문고</a></li>
+			<li><a href=https://book.interpark.com/bookPark/html/book.html>>인터파크 도서</a></li>
+			<li><a href=http://www.yes24.com/main/default.aspx>> YES24</a></li>
+		</ul>
+	</div></td>
+	<td><div class="section">
 	<input type="radio" name="slide" id="slide01" checked>
 	<input type="radio" name="slide" id="slide02">
 	<input type="radio" name="slide" id="slide03">
@@ -161,7 +174,7 @@
 			<li><label for="slide04"></label></li>
 			<li><label for="slide05"></label></li>
 		</ul>
-	</div>	
-</div>
+	</div></div></td></tr>
+</table>
 </body>
 </html>
