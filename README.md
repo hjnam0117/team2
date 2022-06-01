@@ -19,3 +19,5 @@ create table book( bookid int not null primary key auto_increment, category varc
 create table cart( bookid int not null primary key auto_increment, bookname varchar(30) not null, bookwriter varchar(30) not null, bookcount int not null, totalprice int not null );
 
 create table payment( paymentid int not null auto_increment, bookid int not null, bookname varchar(30) not null, bookcount int not null, cardnumber varchar(30) not null, cardpw varchar(10) not null, address varchar(50) not null, call varchar(20) not null, totalprice int not null );
+
+6/1 banner.jsp 
