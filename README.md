@@ -1,5 +1,6 @@
 # team2
 
+
 1. 참고자료
 
 첫페이지 구조 https://note.espriter.net/1177
@@ -15,6 +16,7 @@
 장바구니, 카테고리별 검색 https://velog.io/@jeong11/teamproject-jsp-shoppingmall-cartadmin
 
 
+
 2. 데이터 베이스
 
 create table userdb( usernumber int not null primary key auto_increment, usertype varchar(10) not null, name varchar(20) not null, id varchar(10) not null, pw varchar(10) not null, call varchar(20), address varchar(50), email varchar(20) );
@@ -24,6 +26,7 @@ create table book( bookid int not null primary key auto_increment, category varc
 create table cart( bookid int not null primary key auto_increment, bookname varchar(30) not null, bookwriter varchar(30) not null, bookcount int not null, totalprice int not null );
 
 create table payment( paymentid int not null auto_increment, bookid int not null, bookname varchar(30) not null, bookcount int not null, cardnumber varchar(30) not null, cardpw varchar(10) not null, address varchar(50) not null, call varchar(20) not null, totalprice int not null );
+
 
 
 3. 변경 및 
