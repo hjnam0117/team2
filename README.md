@@ -13,7 +13,7 @@
 장바구니, 카테고리별 검색 https://velog.io/@jeong11/teamproject-jsp-shoppingmall-cartadmin
 
 
-* 데이터 베이스 *
+- 데이터 베이스
 create table userdb( usernumber int not null primary key auto_increment, usertype varchar(10) not null, name varchar(20) not null, id varchar(10) not null, pw varchar(10) not null, call varchar(20), address varchar(50), email varchar(20) );
 
 create table book( bookid int not null primary key auto_increment, category varchar(10) not null, name varchar(30) not null, writer varchar(30) not null, descript varchar(300), price int not null, stock int not null, soldout varchar(10) not null );
