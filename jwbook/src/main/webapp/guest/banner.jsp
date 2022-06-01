@@ -7,6 +7,7 @@
 	<meta charset='utf-8'>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<title></title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" crossorigin="anonymous">
 	<style>
 	.sitelist > li {list-style-type: none; padding: 20px 80px 20px 20px; margin-bottom: 5px; border-bottom: 1px solid #efefef; font-size: 18px;}
 	* {margin:0;padding:0;}
@@ -51,6 +52,34 @@
 	.section input[id="slide03"]:checked ~ .slidewrap .slide-control > div:nth-child(3) {display:block;}
 	.section input[id="slide04"]:checked ~ .slidewrap .slide-control > div:nth-child(4) {display:block;}
 	.section input[id="slide05"]:checked ~ .slidewrap .slide-control > div:nth-child(5) {display:block;}
+	span {
+	  display: inline-block;
+	}
+	.arrow-prev::after {
+    	position: absolute;
+    	left: 35px; 
+	    top: 20px;
+	    content: '';
+	    width: 50px; /* 사이즈 */
+	    height: 50px; /* 사이즈 */
+	    border-top: 5px solid #ccc; /* 선 두께 */
+	    border-radius:5px;
+	    border-right: 5px solid #ccc; /* 선 두께 */
+	    transform: rotate(225deg); /* 각도 */
+	}
+
+	.arrow-next::after {
+    	position: absolute;
+    	left: 10px; 
+    	top: 20px; 
+    	content: '';
+    	width: 50px; /* 사이즈 */
+    	height: 50px; /* 사이즈 */
+    	border-top: 5px solid #ccc; /* 선 두께 */
+    	border-radius:5px;
+    	border-right: 5px solid #ccc; /* 선 두께 */
+    	transform: rotate(45deg); /* 각도 */
+ 	}
 
 	/* 페이징 */
 	.slide-pagelist {text-align:center;padding:20px;}
@@ -145,24 +174,24 @@
 			<!-- 좌,우 슬라이드 버튼 -->
 			<div class="slide-control">
 				<div>
-					<label for="slide05" class="left"><img src=https://www.sehan.ac.kr/html/main1/img/btn_slide_left_01_on.png></label>
-					<label for="slide02" class="right"><img src=https://www.sehan.ac.kr/html/main1/img/btn_slide_right_01_on.png></label>
+					<label for="slide05" class="left"><span class="arrow-prev"></span></label>
+					<label for="slide02" class="right"><span class="arrow-next"></span></label>
 				</div>
 				<div>
-					<label for="slide01" class="left"><img src=https://www.sehan.ac.kr/html/main1/img/btn_slide_left_01_on.png></label>
-					<label for="slide03" class="right"><img src=https://www.sehan.ac.kr/html/main1/img/btn_slide_right_01_on.png></label>
+					<label for="slide01" class="left"><span class="arrow-prev"></span></label>
+					<label for="slide03" class="right"><span class="arrow-next"></label>
 				</div>
 				<div>
-					<label for="slide02" class="left"><img src=https://www.sehan.ac.kr/html/main1/img/btn_slide_left_01_on.png></label>
-					<label for="slide04" class="right"><img src=https://www.sehan.ac.kr/html/main1/img/btn_slide_right_01_on.png></label>
+					<label for="slide02" class="left"><span class="arrow-prev"></span></label>
+					<label for="slide04" class="right"><span class="arrow-next"></label>
 				</div>
 				<div>
-					<label for="slide03" class="left"><img src=https://www.sehan.ac.kr/html/main1/img/btn_slide_left_01_on.png></label>
-					<label for="slide05" class="right"><img src=https://www.sehan.ac.kr/html/main1/img/btn_slide_right_01_on.png></label>
+					<label for="slide03" class="left"><span class="arrow-prev"></span></label>
+					<label for="slide05" class="right"><span class="arrow-next"></label>
 				</div>
 				<div>
-					<label for="slide04" class="left"><img src=https://www.sehan.ac.kr/html/main1/img/btn_slide_left_01_on.png></label>
-					<label for="slide01" class="right"><img src=https://www.sehan.ac.kr/html/main1/img/btn_slide_right_01_on.png></label>
+					<label for="slide04" class="left"><span class="arrow-prev"></span></label>
+					<label for="slide01" class="right"><span class="arrow-next"></label>
 				</div>
 			</div>
 		</ul>
