@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="bookstore.book"%>
 <%@ page import="bookstore.Bookdao"%>
-<%@ page import="com.oreilly.servlet.*"%>
+<%@ page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page import="com.oreilly.servlet.multipart.*"%>
 <%@ page import="java.util.*"%>
 <%
@@ -25,19 +25,19 @@
 	String unitstock = multi.getParameter("stock");
 	String soldout = multi.getParameter("soldout");
 	
-	Enumeration files = multi.getFileNames();
+	Enumeration<?> files = multi.getFileNames();
 	String fname = (String) files.nextElement();
 	String img = multi.getFilesystemName(fname);
 	
 	Bookdao dao = Bookdao.getInstance();
 	
-	String bookId;
+	int bookId;
 	Integer price, stock;
-	if (bookid=="" || bookid==null) bookId = String.valueOf(dao.getNumber()+1);
-	else bookId = bookid;
-	if (unitprice=="" || unitprice==null) price = 0;
+	if (bookid.isEmpty()) bookId = dao.getNumber()+1;
+	else bookId = Integer.parseInt(bookid);
+	if (unitprice.isEmpty()) price = 0;
 	else price = Integer.valueOf(unitprice);
-	if (unitstock=="" || unitstock==null) stock = 0;
+	if (unitstock.isEmpty()) stock = 0;
 	else stock = Integer.valueOf(unitstock);
 
 	book book = new book();

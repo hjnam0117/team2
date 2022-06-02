@@ -14,6 +14,7 @@
 	.left {width="200"; text-align:center;}
 	.right {width="700";}
 </style>
+<script type="text/javascript" src="../resources/js/validation.js"></script>
 </head>
 <body>
 	<%@ include file="guest_top.jsp" %>
@@ -27,15 +28,15 @@
 		<table class="mytable" width="1000" border="1" align="center"> 
 			<tr>
 				<td class="left">도서 번호</td>
-				<td class="right"><input type="text" size="50" maxlength="50" name="bookid" class="form-control"></td>
+				<td class="right"><input type="text" id="bookid" size="50" maxlength="50" name="bookid" class="form-control"></td>
 			</tr>
 			<tr> 
 				<td class="left">도서 이름</td> 		
-		    	<td class="right"><input type="text" size="50" maxlength="50" name="name" class="form-control"></td>
+		    	<td class="right"><input type="text" id="name" size="50" maxlength="50" name="name" class="form-control"></td>
 			</tr>
 			<tr>	
 		    	<td class="left">도서 저자</td> 
-				<td class="right"><input type="text" size="50" maxlength="50" name="writer" class="form-control"></td>
+				<td class="right"><input type="text" id="price" size="50" maxlength="50" name="writer" class="form-control"></td>
 			</tr>
 			<tr> 
 				<td class="left">도서 분야</td>
@@ -59,7 +60,7 @@
 			</tr>
 			<tr> 
 				<td class="left">도서 재고</td>
-				<td class="right"><input type="text" size="50" maxlength="50" name="stock"> 권</td> 
+				<td class="right"><input type="text" id="stock" size="50" maxlength="50" name="stock"> 권</td> 
 			</tr>
 			<tr> 
 				<td class="left">품절 여부</td>
@@ -67,10 +68,10 @@
 			</tr>
 			<tr> 	
 		    	<td class="left">이미지</td> 
-				<td class="right"><input type="file" name="image"></td> 
+				<td class="right"><input type="file" name="fname"></td> 
 			</tr>
 			<tr>       			
-				<td colspan=2 align="center"><input type="submit" value="도서 등록" onclick="checkForm(this.form)">
+				<td colspan=2 align="center"><input type="submit" class="btn btn-primary" value="도서 등록" onclick="return CheckAddBook()">
 				<input type="reset" value="다시작성">
 				</td>
 			</tr>

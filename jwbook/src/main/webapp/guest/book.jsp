@@ -20,7 +20,7 @@
 	</div>
 	<%
 		request.setCharacterEncoding("utf-8");
-		String id = request.getParameter("id");
+		int id = Integer.parseInt(request.getParameter("id"));
 		Bookdao dao = Bookdao.getInstance();
 		book book = dao.getBookById(id);
 	%>

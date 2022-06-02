@@ -1,7 +1,7 @@
 package bookstore;
 
 public class book{
-	private String bookid;
+	private int bookid;
 	private String category;
 	private String name;
 	private String writer;
@@ -16,15 +16,15 @@ public class book{
 	public book() {
 		super();
 	}
-	public book(String bookid, String name, String publisher) {
+	public book(int bookid, String name, String publisher) {
 		this.bookid = bookid;
 		this.name = name;
 		this.publisher = publisher;
 	}
-	public String getBookid() {
+	public int getBookid() {
 		return bookid;
 	}
-	public void setBookid(String bookid) {
+	public void setBookid(int bookid) {
 		this.bookid = bookid;
 	}
 	public String getCategory() {

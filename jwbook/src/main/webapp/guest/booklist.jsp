@@ -37,7 +37,8 @@
 			<div class="col-md-8">
 				<h5><b>[<%=book.getCategory()%>] <%=book.getName()%></b></h5>
 				<p style="padding-top: 40px"><%=book.getDescrip()%>...</p>
-				<p><%=book.getWriter()%> | <%=book.getPublisher()%> | <%=book.getPrice()%>원</p>
+				<p style="color:#999"><b><%=book.getWriter()%> | <%=book.getPublisher()%> | <%=book.getReleaseDate()%></b></p>
+				<p style="font-size:24px; color:#f30"><b><%=book.getPrice()%> 원</b></p>
 			</div>
 		</a></div>
 		<hr><br>
