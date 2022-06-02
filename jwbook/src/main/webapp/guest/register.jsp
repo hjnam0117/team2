@@ -4,58 +4,77 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>도서등록</title>
+<title>도서 등록</title>
+<link rel="Stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<style type="text/css">
+	a {color:black; text-decoration-line: none !important; }
+	table {border-spacing:0;}
+	.mytable > td {padding:10px 20px;}
+	.left {width="200"; text-align:center;}
+	.right {width="700";}
+</style>
 </head>
 <body>
 	<%@ include file="guest_top.jsp" %>
-	<br>
-	<center><b>도서 등록</b></center>
-	<br>
-	<table width="600" border="1" cellspacing="0" cellpadding="0" align="center"> 
-		<tr>
-			<td width="100" align="center">도서 번호</td>
-			<td width="500"><input type="text" size="20" maxlength="20" name="bookid"></td>
-		</tr>
-		<tr> 
-			<td width="100" align="center">도서 분야</td>
-			<td width="500"><select name="category">
-				<option value="100">소설</option>
-				<option value="200">에세이</option>
-				<option value="300">컴퓨터</option>
-				<option value="400">인문</option>
-				<option value="500">만화</option>
-				</select>
-			</td>
-		</tr>
-		<tr> 
-			<td  width="100" align="center">도서 이름</td> 		
-		    <td  width="500"><input type="text" size="50" maxlength="50" name="name"></td>
-		</tr>
-		<tr>	
-		    <td  width="100" align="center">도서 저자</td> 
-			<td  width="500"><input type="text" size="30" maxlength="30" name="writer"></td>
-		</tr>
-		<tr>	
-		    <td  width="100" align="center">도서 설명</td> 
-			<td  width="500"><textarea name="descript" rows="23" cols="60"></textarea></td> 
-		</tr>
-		<tr>	
-		    <td  width="100" align="center">도서 가격</td> 
-			<td  width="500"><input type="text" size="10" maxlength="10" name="price">원</td>
-		</tr>
-		<tr> 
-			<td  width="100" align="center">도서 재고</td>
-			<td  width="500"><input type="text" size="10" maxlength="5" name="stock">권</td> 
-		</tr>
-		<tr> 	
-	    	<td  width="100" align="center" >이미지</td> 
-			<td  width="500"><input type="file" name="image"></td> 
-		</tr>
-		<tr>       			
-			<td colspan=2 align="center"><input type="button" value="책등록" onclick="checkForm(this.form)">
-			<input type="reset" value="다시작성">
-			</td>
-		</tr>
-</table>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>도서 등록</h1>
+		</div>
+	</div>
+	<div class="container">
+		<form name="newBook" action="./addbook.jsp" class="form-horizontal" method="post" enctype="multipart/form-data">
+		<table class="mytable" width="1000" border="1" align="center"> 
+			<tr>
+				<td class="left">도서 번호</td>
+				<td class="right"><input type="text" size="50" maxlength="50" name="bookid" class="form-control"></td>
+			</tr>
+			<tr> 
+				<td class="left">도서 이름</td> 		
+		    	<td class="right"><input type="text" size="50" maxlength="50" name="name" class="form-control"></td>
+			</tr>
+			<tr>	
+		    	<td class="left">도서 저자</td> 
+				<td class="right"><input type="text" size="50" maxlength="50" name="writer" class="form-control"></td>
+			</tr>
+			<tr> 
+				<td class="left">도서 분야</td>
+				<td class="right"><input type="text" size="50" maxlength="50" name="category" class="form-control"></td>
+			</tr>
+			<tr>	
+			    <td class="left">출판사</td> 
+				<td class="right"><input type="text" size="50" maxlength="50" name="publisher" class="form-control"></td>
+			</tr>
+			<tr>	
+			    <td class="left">출판일</td> 
+				<td class="right"><input type="text" size="50" maxlength="50" name="releaseDate" class="form-control"></td>
+			</tr>
+			<tr>	
+			    <td class="left">도서 설명</td> 
+				<td class="right"><textarea name="descript" rows="23" cols="60" placeholder="100자 이상 적어주세요" class="form-control"></textarea></td> 
+			</tr>
+			<tr>	
+			    <td class="left">도서 가격</td> 
+				<td class="right"><input type="text" size="50" maxlength="50" name="price"> 원</td>
+			</tr>
+			<tr> 
+				<td class="left">도서 재고</td>
+				<td class="right"><input type="text" size="50" maxlength="50" name="stock"> 권</td> 
+			</tr>
+			<tr> 
+				<td class="left">품절 여부</td>
+				<td class="right"><input type="text" size="50" maxlength="50" name="soldout" class="form-control"></td> 
+			</tr>
+			<tr> 	
+		    	<td class="left">이미지</td> 
+				<td class="right"><input type="file" name="image"></td> 
+			</tr>
+			<tr>       			
+				<td colspan=2 align="center"><input type="submit" value="도서 등록" onclick="checkForm(this.form)">
+				<input type="reset" value="다시작성">
+				</td>
+			</tr>
+		</table></form>
+		</div>
 </body>
 </html>
