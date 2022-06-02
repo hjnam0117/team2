@@ -29,3 +29,8 @@ create table payment( paymentid int not null auto_increment, bookid int not null
 3. 변경 및 구현 
 
 6/1 banner.jsp 변경 
+6/2
+도서등록 register.jsp, 전체도서 booklist.jsp, 각 도서 상세정보 book.jsp, 도서 생성 Bookdao.java 변경
+book.java bookid String형 변경(null 오류 검사)
+DB 연결 덜됨
+addbook.jsp 구현
