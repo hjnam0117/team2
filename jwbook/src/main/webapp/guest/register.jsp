@@ -24,7 +24,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<form name="newBook" action="./addbook.jsp" class="form-horizontal" method="post" enctype="multipart/form-data">
+		<form name="newBook" action="/jwbook/book.nhn?action=addBook" class="form-horizontal" method="post" enctype="multipart/form-data">
 		<table class="mytable" width="1000" border="1" align="center"> 
 			<tr>
 				<td class="left">도서 번호</td>
@@ -68,7 +68,7 @@
 			</tr>
 			<tr> 	
 		    	<td class="left">이미지</td> 
-				<td class="right"><input type="file" name="fname"></td> 
+				<td class="right"><input type="file" name="file"></td> 
 			</tr>
 			<tr>       			
 				<td colspan=2 align="center"><input type="submit" class="btn btn-primary" value="도서 등록" onclick="return CheckAddBook()">

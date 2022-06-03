@@ -5,7 +5,7 @@ public class book{
 	private String category;
 	private String name;
 	private String writer;
-	private String descrip;
+	private String descript;
 	private int price;
 	private int stock;
 	private String soldout;
@@ -45,11 +45,11 @@ public class book{
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public String getDescrip() {
-		return descrip;
+	public String getDescript() {
+		return descript;
 	}
-	public void setDescrip(String descrip) {
-		this.descrip = descrip;
+	public void setDescript(String descript) {
+		this.descript = descript;
 	}
 	public int getPrice() {
 		return price;

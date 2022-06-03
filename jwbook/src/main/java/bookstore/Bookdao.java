@@ -1,75 +1,99 @@
 package bookstore;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
-import bookstore.book;
+import ch10.News;
 
 public class Bookdao {
-	private ArrayList<book> listOfBooks = new ArrayList<book>();
-	private static Bookdao instance = new Bookdao();
+	final String JDBC_DRIVER = "org.h2.Driver";
+	final String JDBC_URL = "jdbc:h2:tcp://localhost/~/jwbookdb";
 
-	public static Bookdao getInstance() {
-		return instance;
+	public Connection open() {
+		Connection conn = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(JDBC_URL,"jwbook","1234");
+		} catch (Exception e) { e.printStackTrace(); }
+		return conn;
 	}
-
-	public Bookdao() {
-		book html = new book(1, "HTML5 웹 프로그래밍 입문", "한빛아카데미");
-		html.setWriter("윤인성");
-		html.setCategory("컴퓨터");
-		html.setDescrip("웹 프로그래밍을 처음 배우는 독자를 위한 입문서로 HTML5, CSS3, 자바스크립트, jQuery까지 한 권으로 기본기를 다질 수 있습니다. 최신 웹 표준에 맞게 배울 수 있도록 웹에 대한 기본 이해부터 프로젝트 완성까지 단계적으로 다룹니다. 예제는 단편적인 기능 익히기에 그치지 않고 실제 개발에 응용할 수 있도록 기본 예제 → 응용 예제 → 종합 예제(블로그 제작)의 점차 발전되는 형태로 구성되어 있습니다.");
-		html.setReleaseDate("2019-07-19");
-		html.setPrice(26000);
-		html.setStock(100);
-		html.setSoldout("재고 있음");
-		html.setImg("1.jpg");
-		
-		book jsp = new book(2, "JSP 웹 프로그래밍과 스프링 프레임워크", "한빛아카데미");
-		jsp.setWriter("황희정");
-		jsp.setCategory("컴퓨터");
-		jsp.setDescrip("컴퓨터 관련학과 학생과 IT 전문학원에서 자바 웹 프로그래밍을 배우려는 학생을 대상으로 합니다. 이 책에서는 시대적 흐름을 반영하면서도 핵심 개념에 충실하도록 구성하였으며, 프런트엔드의 기초 내용(HTML, CSS, 자바스크립트, 부트스트랩)도 추가하였습니다. 또한 대표적인 자바 웹 개발 프레임워크인 스프링 프레임워크의 핵심 활용을 포함하고 있습니다.");
-		jsp.setReleaseDate("2021-08-08");
-		jsp.setPrice(27000);
-		jsp.setStock(200);
-		jsp.setSoldout("재고 있음");
-		jsp.setImg("2.jpg");
-		
-		book goodbye = new book(3, "작별인사", "복복서가");
-		goodbye.setWriter("김영하");
-		goodbye.setCategory("소설");
-		goodbye.setDescrip("그리 멀지 않은 미래를 배경으로, 별안간 삶이 송두리째 뒤흔들린 한 소년의 여정을 좇는다. 유명한 IT 기업의 연구원인 아버지와 쾌적하고 평화롭게 살아가던 철이는 어느날 갑자기 수용소로 끌려가 난생처음 날것의 감정으로 가득한 혼돈의 세계에 맞닥뜨리게 되면서 정신적, 신체적 위기에 직면한다. 동시에 자신처럼 사회에서 배제된 자들을 만나 처음으로 생생한 소속감을 느끼고 따뜻한 우정도 싹틔운다. 철이는 그들과 함께 수용소를 탈출하여 집으로 돌아가기 위해 길을 떠나지만 그 여정에는 피할 수 없는 질문이 기다리고 있다.");
-		goodbye.setReleaseDate("2022-05-01");
-		goodbye.setPrice(12600);
-		goodbye.setStock(50);
-		goodbye.setSoldout("재고 있음");
-		goodbye.setImg("3.jpg");
-		
-		listOfBooks.add(html);
-		listOfBooks.add(jsp);
-		listOfBooks.add(goodbye);
+	public ArrayList<book> getAll() throws Exception {
+		Connection conn = open();
+		ArrayList<book> listOfBooks = new ArrayList<book>();
+		String sql = "select category, name, writer, descript, price, publisher, releasedate, img from book";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
+		try(conn; pstmt; rs) {
+			while(rs.next()) {
+				book b = new book();
+				b.setImg(rs.getString("img"));
+				b.setCategory(rs.getString("category"));
+				b.setName(rs.getString("name"));
+				b.setDescript(rs.getString("descript"));
+				b.setWriter(rs.getString("writer"));
+				b.setPublisher(rs.getString("publisher"));
+				b.setReleaseDate(rs.getString("releaseDate"));
+				b.setPrice(rs.getInt("price"));
+				listOfBooks.add(b);
+			}
+			return listOfBooks;
+		}
 	}
-
-	public ArrayList<book> getAllBooks() {
-		return listOfBooks;
+	public book getBook(int bookid) throws SQLException{
+		Connection conn = open();
+		book b = new book();
+		String sql = "select * from book where bookid=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, bookid);
+		ResultSet rs = pstmt.executeQuery();
+		rs.next();
+		try(conn; pstmt; rs) {
+			b.setImg(rs.getString("img"));
+			b.setCategory(rs.getString("category"));
+			b.setName(rs.getString("name"));
+			b.setDescript(rs.getString("descript"));
+			b.setBookid(rs.getInt("bookid"));
+			b.setWriter(rs.getString("writer"));
+			b.setPublisher(rs.getString("publisher"));
+			b.setReleaseDate(rs.getString("releaseDate"));
+			b.setPrice(rs.getInt("price"));
+			pstmt.executeQuery();
+			return b;
+		}
 	}
-	
-	public int getNumber() {
-		return listOfBooks.size();
+	public void addBook(book b) throws Exception{
+		Connection conn = open();
+		String sql = "insert into book(bookid, category, name, writer, descript, price, stock, soldout, publisher, releasedate, img) values(?,?,?,?,?,?,?,?,?,?,?)";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		try(conn; pstmt) {
+			pstmt.setInt(1, b.getBookid());
+			pstmt.setString(2, b.getCategory());
+			pstmt.setString(3, b.getName());
+			pstmt.setString(4, b.getWriter());
+			pstmt.setString(5, b.getDescript());
+			pstmt.setInt(6, b.getPrice());
+			pstmt.setInt(7, b.getStock());
+			pstmt.setString(8, b.getSoldout());
+			pstmt.setString(9, b.getPublisher());
+			pstmt.setString(10, b.getReleaseDate());
+			pstmt.setString(11, b.getImg());			
+			pstmt.executeUpdate();
+		}
 	}
-	
-	public book getBookById(int bookId) {
-		book bookById = null;
-
-		for (int i = 0; i < listOfBooks.size(); i++) {
-			book book = listOfBooks.get(i);
-			if (book != null && book.getBookid()==bookId) {
-				bookById = book;
-				break;
+	public void delBook(int bookid) throws SQLException{
+		Connection conn = open();
+		String sql = "delete from book where bookid=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		try(conn; pstmt) {
+			pstmt.setInt(1, bookid);
+			if(pstmt.executeUpdate()==0) {
+				throw new SQLException("DB에러");
 			}
 		}
-		return bookById;
-	}
-	
-	public void addBook(book book) {
-		listOfBooks.add(book);
 	}
 }

@@ -9,7 +9,7 @@ function CheckAddBook() {
 	if (!check(/^[0-9]+$/, bookid, "[도서코드]\n숫자만 입력하세요."))
 		return false;
 
-	if (name.length < 1) { // 도서명의 문자 길이가 1자 이상인지 확인
+	if (name.length() < 1) { // 도서명의 문자 길이가 1자 이상인지 확인
 		alert("도서명은 최소 1자 이상이어야 합니다.");
 
 		document.newBook.name.select();
@@ -17,7 +17,7 @@ function CheckAddBook() {
 		return false;
 	}
 
-	if (price.length == 0) { // 가격의 문자 길이가 0인지 숫자인지 유효성 검사
+	if (price.length() == 0) { // 가격의 문자 길이가 0인지 숫자인지 유효성 검사
 		alert("가격은 숫자를 입력해야 합니다.");
 
 		document.newBook.price.select();

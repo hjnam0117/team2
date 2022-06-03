@@ -3,10 +3,12 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="bookstore.book"%>
 <%@ page import="bookstore.Bookdao"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-<link rel="Stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="Stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <title>도서 목록</title>
 <style type="text/css">
 	a {color:black; text-decoration-line: none !important; }
@@ -20,31 +22,27 @@
 			<h1>전체 도서</h1>
 		</div>
 	</div>
-	<%
-		Bookdao dao = Bookdao.getInstance();
-		ArrayList<book> listOfBooks = dao.getAllBooks();
-	%>
-	
 	<div class="container">
-		<%
-			for (int i = 0; i < listOfBooks.size(); i++) {
-				book book = listOfBooks.get(i);
-		%>
-		<div class="row"><a href="./book.jsp?id=<%=book.getBookid()%>">
+		<c:forEach var="book" items="${booklist}" varStatus="status">
+		<div class="row"><a href="book.nhn?action=getBook&bookid=${status.count}">
 			<div class="col-md-3" align="center">
-				<img src="../images/<%=book.getImg()%>" style="width: 80%">
+				<img src="${book.img}" style="width: 80%">
 			</div>
 			<div class="col-md-8">
-				<h5><b>[<%=book.getCategory()%>] <%=book.getName()%></b></h5>
-				<p style="padding-top: 40px"><%=book.getDescrip()%>...</p>
-				<p style="color:#999"><b><%=book.getWriter()%> | <%=book.getPublisher()%> | <%=book.getReleaseDate()%></b></p>
-				<p style="font-size:24px; color:#f30"><b><%=book.getPrice()%> 원</b></p>
+				<h5><b>[${book.category}] ${book.name}</b></h5>
+				<p style="padding-top: 40px">${book.descript}...</p>
+				<p style="color:#999"><b>${book.writer} | ${book.publisher} | ${book.releaseDate}</b></p>
+				<p style="font-size:24px; color:#f30"><b>${book.price} 원</b></p>
 			</div>
 		</a></div>
 		<hr><br>
-		<%
-			}
-		%>
+		</c:forEach>
+		<c:if test="${error != null}">
+		<div class="alert alert-danger alert-dismissible fade show mt-3">
+			에러 발생: ${error}
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+		</div>
+	</c:if>
 	</div>
 	<%@ include file="guest_bottom.jsp" %>   
 </body>
