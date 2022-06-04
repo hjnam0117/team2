@@ -25,6 +25,12 @@ create table cart( bookid int not null primary key auto_increment, bookname varc
 
 create table payment( paymentid int not null auto_increment, bookid int not null, bookname varchar(30) not null, bookcount int not null, cardnumber varchar(30) not null, cardpw varchar(10) not null, address varchar(50) not null, call varchar(20) not null, totalprice int not null );
 
+++
+
+alter table book add(publisher varchar(20) not null);
+alter table book add(releasedate varchar(20) not null);
+alter table book add(img varchar not null);
+
 
 3. 변경 및 구현 
 
@@ -34,4 +40,4 @@ create table payment( paymentid int not null auto_increment, bookid int not null
 DB 연결 덜됨
 도서 추가 addbook.jsp 등록 내용 검사 validation.js 구현
 6/3
-db 연결, 이미지 c:/temp 등록, 서블릿에서 jsp 호출 안넘어감
+book db 칼럼추가, db 연결, 이미지 c:/temp 등록, 서블릿에서 jsp 호출 안넘어감
