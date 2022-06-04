@@ -1,8 +1,5 @@
 <%-- booklist.jsp --%>
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="bookstore.book"%>
-<%@ page import="bookstore.Bookdao"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -22,28 +19,29 @@
 			<h1>전체 도서</h1>
 		</div>
 	</div>
-	<div class="container">
+	<ul class="container">
 		<c:forEach var="book" items="${booklist}" varStatus="status">
-		<div class="row"><a href="book.nhn?action=getBook&bookid=${status.count}">
-			<div class="col-md-3" align="center">
-				<img src="${book.img}" style="width: 80%">
-			</div>
-			<div class="col-md-8">
-				<h5><b>[${book.category}] ${book.name}</b></h5>
-				<p style="padding-top: 40px">${book.descript}...</p>
-				<p style="color:#999"><b>${book.writer} | ${book.publisher} | ${book.releaseDate}</b></p>
-				<p style="font-size:24px; color:#f30"><b>${book.price} 원</b></p>
-			</div>
-		</a></div>
-		<hr><br>
+			<li class="row"><a href="book?action=getBook&bookid=${status.count}">
+				<div class="col-md-3" align="center">
+					<img src="${book.img}" style="width: 80%">
+				</div>
+				<div class="col-md-8">
+					<h5><b>[${book.category}] ${book.name}</b></h5>
+					<p style="padding-top: 40px">${book.descript}...</p>
+					<p style="color:#999"><b>${book.writer} | ${book.publisher} | ${book.releaseDate}</b></p>
+					<p style="font-size:24px; color:#f30"><b>${book.price} 원</b></p>
+				</div>
+			</a></li>
+			<hr><br>
 		</c:forEach>
-		<c:if test="${error != null}">
+	</ul>
+	<c:if test="${error != null}">
 		<div class="alert alert-danger alert-dismissible fade show mt-3">
 			에러 발생: ${error}
 			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 		</div>
 	</c:if>
-	</div>
+	
 	<%@ include file="guest_bottom.jsp" %>   
 </body>
 </html>

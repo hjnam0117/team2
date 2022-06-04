@@ -24,7 +24,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<form name="newBook" action="/jwbook/book.nhn?action=addBook" class="form-horizontal" method="post" enctype="multipart/form-data">
+		<form name="newBook" action="/jwbook/book?action=addBook" class="form-horizontal" method="post" enctype="multipart/form-data">
 		<table class="mytable" width="1000" border="1" align="center"> 
 			<tr>
 				<td class="left">도서 번호</td>

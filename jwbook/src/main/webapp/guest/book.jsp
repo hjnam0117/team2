@@ -33,7 +33,7 @@
 				<p><b>도서 재고</b> : ${book.stock}</p><br>
 				<h4>${book.price} 원</h4><br>
 				<p><a href="#" class="btn btn-info">구매하기 &raquo;</a> 
-				<a href="book.nhn?acton=listBook" class="btn btn-secondary">전체도서 &raquo;</a></p><br>
+				<a href="book?acton=listBook" class="btn btn-secondary">전체도서 &raquo;</a></p><br>
 			</div>
 		<br><hr></div>
 	</div>

@@ -19,7 +19,7 @@ import javax.servlet.http.Part;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-@WebServlet(urlPatterns = "/book.nhn")
+@WebServlet("/book")
 @MultipartConfig(maxFileSize=1024*1024*2, location="c:/Temp/img")
 public class bookcontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -76,7 +76,7 @@ public class bookcontroller extends HttpServlet {
 			request.setAttribute("error", "도서가 정상적으로 등록되지 않았습니다!!");
 			return listBooks(request);
 		}
-		return "redirect:/book.nhn?action=listBooks";
+		return "redirect:/book?action=listBooks";
 	}
     public String deleteBook(HttpServletRequest request) {
 		int bookid = Integer.parseInt(request.getParameter("bookid"));
@@ -88,7 +88,7 @@ public class bookcontroller extends HttpServlet {
 			request.setAttribute("error", "도서가 정상적으로 삭제되지 않았습니다!!");
 			return listBooks(request);
 		}
-		return "redirect:/book.nhn?action=listBooks";
+		return "redirect:/book?action=listBooks";
 	}
 	public String listBooks(HttpServletRequest request) {
 		ArrayList<book> list;
