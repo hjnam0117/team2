@@ -33,3 +33,5 @@ create table payment( paymentid int not null auto_increment, bookid int not null
 도서등록 register.jsp, 전체도서 booklist.jsp, 각 도서 상세정보 book.jsp, 도서 생성 Bookdao.java 변경
 DB 연결 덜됨
 도서 추가 addbook.jsp 등록 내용 검사 validation.js 구현
+6/3
+db 연결, 이미지 c:/temp 등록, 서블릿에서 jsp 호출 안넘어감
