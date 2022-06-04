@@ -19,7 +19,7 @@ import javax.servlet.http.Part;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-@WebServlet("/book.nhn")
+@WebServlet(urlPatterns = "/book.nhn")
 @MultipartConfig(maxFileSize=1024*1024*2, location="c:/Temp/img")
 public class bookcontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -43,7 +43,6 @@ public class bookcontroller extends HttpServlet {
     	try {
     		m = this.getClass().getMethod(action, HttpServletRequest.class);
     		view = (String)m.invoke(this, request);
-    		System.out.println("경로확인11"+view);
     	} catch (NoSuchMethodException e) {
     		e.printStackTrace();
     		ctx.log("요청 action 없음!!");
@@ -57,7 +56,6 @@ public class bookcontroller extends HttpServlet {
     		response.sendRedirect(rview);
     	} else {
     		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-    		System.out.println("경로확인22"+dispatcher);
     		dispatcher.forward(request, response);
     	}
     }
