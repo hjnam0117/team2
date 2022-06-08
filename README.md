@@ -117,3 +117,5 @@ book db 칼럼추가, db 연결, 이미지 c:/temp 등록, 서블릿에서 jsp �
 2 guest_top.jsp 도서 목록, 도서 등록 절대경로로 변환 -> 도서 목록, 등록 제대로 동작함
 
 
+6/8
+1 메인페이지 배너에 로그인 포함, 컨트롤러 action main 추가, userdb에 name, usertype 변수 관련 함수 
