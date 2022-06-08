@@ -102,7 +102,7 @@
 			<li><a href=http://www.kyobobook.co.kr/index.laf?>> 교보문고</a></li>
 			<li><a href=https://www.aladin.co.kr/home/welcome.aspx>> 알라딘</a></li>
 			<li><a href=https://www.ypbooks.co.kr/kor_index.yp>> 영풍문고</a></li>
-			<li><a href=https://book.interpark.com/bookPark/html/book.html>>인터파크 도서</a></li>
+			<li><a href=https://book.interpark.com/bookPark/html/book.html>> 인터파크 도서</a></li>
 			<li><a href=http://www.yes24.com/main/default.aspx>> YES24</a></li>
 		</ul>
 	</div></td>
@@ -203,7 +203,11 @@
 			<li><label for="slide04"></label></li>
 			<li><label for="slide05"></label></li>
 		</ul>
-	</div></div></td></tr>
+	</div></div></td>
+	<td>
+		<%@ include file="login.jsp" %>
+	</td>
+	</tr>
 </table>
 </body>
 </html>
