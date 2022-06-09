@@ -1,6 +1,7 @@
 <%-- booklist.jsp --%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
 <link rel="Stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -23,12 +24,13 @@
 		<c:forEach var="book" items="${booklist}" varStatus="status">
 			<li class="row"><a href="book?action=getBook&bookid=${status.count}">
 				<div class="col-md-3" align="center">
-					<img src="${book.img}" style="width: 80%">
+					<img src="${book.img}" width="70%" height="300">
 				</div>
 				<div class="col-md-8">
 					<h5><b>[${book.category}] ${book.name}</b></h5>
-					<p style="padding-top: 40px">${book.descript}...</p>
-					<p style="color:#999"><b>${book.writer} | ${book.publisher} | ${book.releaseDate}</b></p>
+					<c:set var="discript" value="${book.descript}"/>
+					<p style="padding-top: 40px">${fn:substring(discript,0,150)}...</p><br>
+					<p style="color:#999"><b>${book.writer} | ${book.publisher} | ${book.releaseDate}</b></p><br>
 					<p style="font-size:24px; color:#f30"><b>${book.price} 원</b></p>
 				</div>
 			</a></li>

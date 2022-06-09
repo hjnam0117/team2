@@ -25,7 +25,7 @@ public class Bookdao {
 	public ArrayList<book> getAll() throws Exception {
 		Connection conn = open();
 		ArrayList<book> listOfBooks = new ArrayList<book>();
-		String sql = "select category, name, writer, descript, price, publisher, releasedate, img from book";
+		String sql = "select category, name, writer, descript, price, publisher, releasedate, img, krank from book";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
 		try(conn; pstmt; rs) {
@@ -39,6 +39,31 @@ public class Bookdao {
 				b.setPublisher(rs.getString("publisher"));
 				b.setReleaseDate(rs.getString("releaseDate"));
 				b.setPrice(rs.getInt("price"));
+				b.setKrank(rs.getInt("krank"));
+				listOfBooks.add(b);
+			}
+			return listOfBooks;
+		}
+	}
+	public ArrayList<book> getBestseller(String rank, String category) throws Exception {
+		Connection conn = open();
+		ArrayList<book> listOfBooks = new ArrayList<book>();
+		PreparedStatement pstmt = conn.prepareStatement("select bookid, img, category, name, krank, arank, prank, irank, yrank from book where category=? order by "+rank);
+		pstmt.setString(1, category);
+		ResultSet rs = pstmt.executeQuery();
+		System.out.println(rs);
+		rs.next();
+		try(conn; pstmt; rs) {
+			while(rs.next()) {
+				book b = new book();
+				b.setBookid(rs.getInt("bookid"));
+				b.setName(rs.getString("name"));
+				b.setImg(rs.getString("img"));
+				b.setKrank(rs.getInt("krank"));
+				b.setKrank(rs.getInt("arank"));
+				b.setKrank(rs.getInt("prank"));
+				b.setKrank(rs.getInt("irank"));
+				b.setKrank(rs.getInt("yrank"));
 				listOfBooks.add(b);
 			}
 			return listOfBooks;
@@ -96,4 +121,5 @@ public class Bookdao {
 			}
 		}
 	}
+
 }
