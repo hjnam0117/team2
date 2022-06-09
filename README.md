@@ -31,6 +31,10 @@ alter table book add(publisher varchar(20) not null);
 alter table book add(releasedate varchar(20) not null);
 alter table book add(img varchar not null);
 
+++
+
+alter table book add(rank varchar(20), krank int, arank int, prank int, irank int, yrank int);
+
 
 3. 주제발표 대본
 
@@ -120,3 +124,13 @@ book db 칼럼추가, db 연결, 이미지 c:/temp 등록, 서블릿에서 jsp �
 6/8
 
 1 메인페이지 배너에 로그인 포함, 컨트롤러 action main 추가, userdb에 name, usertype, usernumber 변수 관련 함수 삭제
+
+6/9
+
+1 베스트셀러 db 연동 완료 (bestcontroller 구현, Bookdao getBestseller() 추가)
+
+2 book db 각 도서사이트 순위 정수형 krank, arank, prank, irank, yrank 추가 (5개 도서사이트 문자열 rank 필요에 따라 사용 또는 삭제)
+
+3 booklist.jsp descript 150자까지만 출력 수정
+
+4 베스트셀러 상단메뉴 bestseller.jsp 구현, 사이트와 장르에 따라 책 리스트 보여주는 novel.jsp 구현 (장르별 구현 완료, 사이트별 구현 수정 중) 
