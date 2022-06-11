@@ -33,7 +33,7 @@ public class bestcontroller extends HttpServlet {
     	Method m;
     	String view = null;
     	if (action == null) {
-    		action = "listBooks";
+    		action = "listK";
     	}
     	try {
     		m = this.getClass().getMethod(action, HttpServletRequest.class);
@@ -54,21 +54,12 @@ public class bestcontroller extends HttpServlet {
     		dispatcher.forward(request, response);
     	}
     }
-	public String listBooks(HttpServletRequest request) {
-		String site = request.getParameter("site");
+	public String listK(HttpServletRequest request) {
 		String category = request.getParameter("category");
-		String rank = null;
-		System.out.println("전:"+rank);
-		if (site==null || site=="교보문고") rank="krank";
-		else if (site=="알라딘") rank="arank";
-		else if (site=="영풍문고") rank="prank";
-		else if (site=="인터파크") rank="irank";
-		else if (site=="YES24") rank="yrank";
 		if (category==null) category="소설";
-		System.out.println("후:"+rank);
 		ArrayList<book> list;
-		try {
-			list = dao.getBestseller(rank, category);
+		try {			
+			list = dao.getKBestseller(category);
 			request.setAttribute("booklist", list);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -76,5 +67,61 @@ public class bestcontroller extends HttpServlet {
 			request.setAttribute("error", "도서 목록이 정상적으로 처리되지 않았습니다!!");
 		}
 		return "guest/bestseller.jsp";
+	}
+	public String listA(HttpServletRequest request) {
+		String category = request.getParameter("category");
+		if (category==null) category="소설";
+		ArrayList<book> list;
+		try {			
+			list = dao.getABestseller(category);
+			request.setAttribute("booklist", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("도서 목록 생성 과정에서 문제 발생!!");
+			request.setAttribute("error", "도서 목록이 정상적으로 처리되지 않았습니다!!");
+		}
+		return "guest/abestseller.jsp";
+	}
+	public String listP(HttpServletRequest request) {
+		String category = request.getParameter("category");
+		if (category==null) category="소설";
+		ArrayList<book> list;
+		try {			
+			list = dao.getPBestseller(category);
+			request.setAttribute("booklist", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("도서 목록 생성 과정에서 문제 발생!!");
+			request.setAttribute("error", "도서 목록이 정상적으로 처리되지 않았습니다!!");
+		}
+		return "guest/pbestseller.jsp";
+	}
+	public String listI(HttpServletRequest request) {
+		String category = request.getParameter("category");
+		if (category==null) category="소설";
+		ArrayList<book> list;
+		try {			
+			list = dao.getIBestseller(category);
+			request.setAttribute("booklist", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("도서 목록 생성 과정에서 문제 발생!!");
+			request.setAttribute("error", "도서 목록이 정상적으로 처리되지 않았습니다!!");
+		}
+		return "guest/ibestseller.jsp";
+	}
+	public String listY(HttpServletRequest request) {
+		String category = request.getParameter("category");
+		if (category==null) category="소설";
+		ArrayList<book> list;
+		try {			
+			list = dao.getYBestseller(category);
+			request.setAttribute("booklist", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("도서 목록 생성 과정에서 문제 발생!!");
+			request.setAttribute("error", "도서 목록이 정상적으로 처리되지 않았습니다!!");
+		}
+		return "guest/ybestseller.jsp";
 	}
 }

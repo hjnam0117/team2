@@ -4,7 +4,7 @@
 <head>
 <link rel="Stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <meta charset="UTF-8">
-<title>교보문고 베스트 셀러</title>
+<title>베스트 셀러</title>
 <style type="text/css">
 	*, body {margin:0;padding:0}
 	.top {border: 2px solid #999; border-radius:10px;}
@@ -14,17 +14,14 @@
 	.topmenu > ul > li:first-child {border-radius:5px 0 0 5px;} 
 	.topmenu > ul > li:last-child {border-radius:0 5px 5px 0;}   
     .topmenu > ul > li > a { display: block;}
-    #site1 {background-color:#9080ed;}
-    #site1 a{color:#fff;}
+    #site5 {background-color:#9080ed;}
+    #site5 a{color:#fff;}
     .site:hover, .site:active {background-color:#9080ed;}
     .site a:hover, .site a:active {color:#fff;}
-    .category:hover {font:18px bold; color:gray;}
     
 	.submenu > ul > li {border-left:1px solid #999; font:bold 17px Dotum; padding:0px 50px; float:left;}
 	.submenu > ul > li:first-child{border-left:none;}
 </style>
-<script type="text/javascript">
-</script>
 </head>
 <body>
 	<%@ include file="guest_top.jsp" %>
@@ -45,11 +42,11 @@
 							<td colspan="2">
 								<div class="topmenu">
 									<ul class="menu-wrap">
-										<li id="site1" class="site"><a href="best?action=listK&category=소설"><b>교보문고</b></a></li>
+										<li id="site1" class="site"><a href="best?action=listK&category=소설">교보문고</a></li>
 										<li id="site2" class="site"><a href="best?action=listA&category=소설">알라딘</a></li>
 										<li id="site3" class="site"><a href="best?action=listP&category=소설">영풍문고</a></li>
 										<li id="site4" class="site"><a href="best?action=listI&category=소설">인터파크</a></li>
-										<li id="site5" class="site"><a href="best?action=listY&category=소설">YES24</a></li>
+										<li id="site5" class="site"><a href="best?action=listY&category=소설"><b>YES24</b></a></li>
 									</ul>									
 								</div>
 							</td>
@@ -60,13 +57,13 @@
 							<td width="20"></td>
 							<td class="submenu" colspan="2">
 								<ul>
-									<li><a href="best?action=listK&category=소설"><span class="category">소설</span></a></li>
-									<li><a href="best?action=listK&category=자기계발"><span class="category">자기계발</span></a></li>
-									<li><a href="best?action=listK&category=에세이"><span class="category">에세이</span></a></li>
-									<li><a href="best?action=listK&category=과학"><span class="category">과학</span></a></li>
-									<li><a href="best?action=listK&category=인문"><span class="category">인문</span></a></li>
-									<li><a href="best?action=listK&category=컴퓨터"><span class="category">컴퓨터</span></a></li>
-									<li><a href="best?action=listK&category=청소년"><span class="category">청소년</span></a></li>
+									<li><a href="best?action=listY&category=소설">소설</a></li>
+									<li><a href="best?action=listY&category=자기계발">자기계발</a></li>
+									<li><a href="best?action=listY&category=에세이">에세이</a></li>
+									<li><a href="best?action=listY&category=과학">과학</a></li>
+									<li><a href="best?action=listY&category=인문">인문</a></li>
+									<li><a href="best?action=listY&category=컴퓨터">컴퓨터</a></li>
+									<li><a href="best?action=listY&category=청소년">청소년</a></li>
 								</ul>
 							</td>
 							<td width="20"></td>

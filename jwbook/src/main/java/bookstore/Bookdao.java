@@ -45,10 +45,10 @@ public class Bookdao {
 			return listOfBooks;
 		}
 	}
-	public ArrayList<book> getBestseller(String rank, String category) throws Exception {
+	public ArrayList<book> getKBestseller(String category) throws Exception {
 		Connection conn = open();
 		ArrayList<book> listOfBooks = new ArrayList<book>();
-		PreparedStatement pstmt = conn.prepareStatement("select bookid, img, category, name, krank, arank, prank, irank, yrank from book where category=? order by "+rank);
+		PreparedStatement pstmt = conn.prepareStatement("select bookid, img, category, name, krank from book where category=? order by krank");
 		pstmt.setString(1, category);
 		ResultSet rs = pstmt.executeQuery();
 		System.out.println(rs);
@@ -60,10 +60,86 @@ public class Bookdao {
 				b.setName(rs.getString("name"));
 				b.setImg(rs.getString("img"));
 				b.setKrank(rs.getInt("krank"));
-				b.setKrank(rs.getInt("arank"));
-				b.setKrank(rs.getInt("prank"));
-				b.setKrank(rs.getInt("irank"));
-				b.setKrank(rs.getInt("yrank"));
+				listOfBooks.add(b);
+			}
+			return listOfBooks;
+		}
+	}
+	public ArrayList<book> getABestseller(String category) throws Exception {
+		Connection conn = open();
+		ArrayList<book> listOfBooks = new ArrayList<book>();
+		PreparedStatement pstmt = conn.prepareStatement("select bookid, img, category, name, arank from book where category=? order by arank");
+		pstmt.setString(1, category);
+		ResultSet rs = pstmt.executeQuery();
+		System.out.println(rs);
+		rs.next();
+		try(conn; pstmt; rs) {
+			while(rs.next()) {
+				book b = new book();
+				b.setBookid(rs.getInt("bookid"));
+				b.setName(rs.getString("name"));
+				b.setImg(rs.getString("img"));
+				b.setArank(rs.getInt("arank"));
+				listOfBooks.add(b);
+			}
+			return listOfBooks;
+		}
+	}
+	public ArrayList<book> getPBestseller(String category) throws Exception {
+		Connection conn = open();
+		ArrayList<book> listOfBooks = new ArrayList<book>();
+		PreparedStatement pstmt = conn.prepareStatement("select bookid, img, category, name, prank from book where category=? order by prank");
+		pstmt.setString(1, category);
+		ResultSet rs = pstmt.executeQuery();
+		System.out.println(rs);
+		rs.next();
+		try(conn; pstmt; rs) {
+			while(rs.next()) {
+				book b = new book();
+				b.setBookid(rs.getInt("bookid"));
+				b.setName(rs.getString("name"));
+				b.setImg(rs.getString("img"));
+				b.setPrank(rs.getInt("prank"));
+				listOfBooks.add(b);
+			}
+			return listOfBooks;
+		}
+	}
+	public ArrayList<book> getIBestseller(String category) throws Exception {
+		Connection conn = open();
+		ArrayList<book> listOfBooks = new ArrayList<book>();
+		PreparedStatement pstmt = conn.prepareStatement("select bookid, img, category, name, irank from book where category=? order by irank");
+		pstmt.setString(1, category);
+		ResultSet rs = pstmt.executeQuery();
+		System.out.println(rs);
+		rs.next();
+		try(conn; pstmt; rs) {
+			while(rs.next()) {
+				book b = new book();
+				b.setBookid(rs.getInt("bookid"));
+				b.setName(rs.getString("name"));
+				b.setImg(rs.getString("img"));
+				b.setIrank(rs.getInt("irank"));
+				listOfBooks.add(b);
+			}
+			return listOfBooks;
+		}
+	}
+	public ArrayList<book> getYBestseller(String category) throws Exception {
+		Connection conn = open();
+		ArrayList<book> listOfBooks = new ArrayList<book>();
+		PreparedStatement pstmt = conn.prepareStatement("select bookid, img, category, name, yrank from book where category=? order by yrank");
+		pstmt.setString(1, category);
+		ResultSet rs = pstmt.executeQuery();
+		System.out.println(rs);
+		rs.next();
+		try(conn; pstmt; rs) {
+			while(rs.next()) {
+				book b = new book();
+				b.setBookid(rs.getInt("bookid"));
+				b.setName(rs.getString("name"));
+				b.setImg(rs.getString("img"));
+				b.setYrank(rs.getInt("yrank"));
 				listOfBooks.add(b);
 			}
 			return listOfBooks;
