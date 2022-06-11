@@ -134,3 +134,11 @@ book db 칼럼추가, db 연결, 이미지 c:/temp 등록, 서블릿에서 jsp �
 3 booklist.jsp descript 150자까지만 출력 수정
 
 4 베스트셀러 상단메뉴 bestseller.jsp 구현, 사이트와 장르에 따라 책 리스트 보여주는 novel.jsp 구현 (장르별 구현 완료, 사이트별 구현 수정 중) 
+
+6/11
+
+1 각 사이트별 베스트 셀러 jsp 구현 (선택된 사이트 나타내기 위해 5개 구별해서 구현)
+
+2 guest_top.jsp 베스트셀러 접근 경로 변경
+
+3 사이트별 베스트셀러 가져오는 함수 추가 (Bookdao, bestcontroller 수정)
