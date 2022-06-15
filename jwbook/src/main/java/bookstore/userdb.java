@@ -2,6 +2,8 @@ package bookstore;
 
 public class userdb {
 	private int usernumber;
+	private String usertype;
+	private String name;
 	private String id;
 	private String pw;
 	private String call;
@@ -12,6 +14,18 @@ public class userdb {
 	}
 	public void setUsernumber(int usernumber) {
 		this.usernumber = usernumber;
+	}
+	public String getUsertype() {
+		return usertype;
+	}
+	public void setUsertype(String usertype) {
+		this.usertype = usertype;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getId() {
 		return id;

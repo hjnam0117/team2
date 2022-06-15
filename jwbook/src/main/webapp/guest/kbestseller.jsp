@@ -24,6 +24,7 @@
 	.submenu > ul > li:first-child{border-left:none;}
 </style>
 <script type="text/javascript">
+
 </script>
 </head>
 <body>
@@ -45,11 +46,11 @@
 							<td colspan="2">
 								<div class="topmenu">
 									<ul class="menu-wrap">
-										<li id="site1" class="site"><a href="best?action=listK&category=소설"><b>교보문고</b></a></li>
-										<li id="site2" class="site"><a href="best?action=listA&category=소설">알라딘</a></li>
-										<li id="site3" class="site"><a href="best?action=listP&category=소설">영풍문고</a></li>
-										<li id="site4" class="site"><a href="best?action=listI&category=소설">인터파크</a></li>
-										<li id="site5" class="site"><a href="best?action=listY&category=소설">YES24</a></li>
+										<li id="site1" class="site"><a href="best?action=list&site=k&category=소설"><b>교보문고</b></a></li>
+										<li id="site2" class="site"><a href="best?action=list&site=a&category=소설">알라딘</a></li>
+										<li id="site3" class="site"><a href="best?action=list&site=p&category=소설">영풍문고</a></li>
+										<li id="site4" class="site"><a href="best?action=list&site=i&category=소설">인터파크</a></li>
+										<li id="site5" class="site"><a href="best?action=list&site=y&category=소설">YES24</a></li>
 									</ul>									
 								</div>
 							</td>
@@ -60,13 +61,13 @@
 							<td width="20"></td>
 							<td class="submenu" colspan="2">
 								<ul>
-									<li><a href="best?action=listK&category=소설"><span class="category">소설</span></a></li>
-									<li><a href="best?action=listK&category=자기계발"><span class="category">자기계발</span></a></li>
-									<li><a href="best?action=listK&category=에세이"><span class="category">에세이</span></a></li>
-									<li><a href="best?action=listK&category=과학"><span class="category">과학</span></a></li>
-									<li><a href="best?action=listK&category=인문"><span class="category">인문</span></a></li>
-									<li><a href="best?action=listK&category=컴퓨터"><span class="category">컴퓨터</span></a></li>
-									<li><a href="best?action=listK&category=청소년"><span class="category">청소년</span></a></li>
+									<li><a href="best?action=list&site=k&category=소설"><span class="category">소설</span></a></li>
+									<li><a href="best?action=list&site=k&category=자기계발"><span class="category">자기계발</span></a></li>
+									<li><a href="best?action=list&site=k&category=에세이"><span class="category">에세이</span></a></li>
+									<li><a href="best?action=list&site=k&category=과학"><span class="category">과학</span></a></li>
+									<li><a href="best?action=list&site=k&category=인문"><span class="category">인문</span></a></li>
+									<li><a href="best?action=list&site=k&category=컴퓨터"><span class="category">컴퓨터</span></a></li>
+									<li><a href="best?action=list&site=k&category=청소년"><span class="category">청소년</span></a></li>
 								</ul>
 							</td>
 							<td width="20"></td>
@@ -76,20 +77,25 @@
 							<td width="20"></td>
 							<td class="submenu">
 								<ul>
-									<li><a href="#">10대</a></li>
-									<li><a href="#">20대</a></li>
-									<li><a href="#">30대</a></li>
-									<li><a href="#">40대</a></li>
-									<li><a href="#">50대</a></li>
-									<li><a href="#">60대 이상</a></li>
+									<li><a href="best?action=list_2&site=k&age=1">10대</a></li>
+									<li><a href="best?action=list_2&site=k&age=2">20대</a></li>
+									<li><a href="best?action=list_2&site=k&age=3">30대</a></li>
+									<li><a href="best?action=list_2&site=k&age=4">40대</a></li>
+									<li><a href="best?action=list_2&site=k&age=5">50대</a></li>
+									<li><a href="best?action=list_2&site=k&age=6">60대 이상</a></li>
 								</ul>
 							</td>
 							<td>
-								<span class="selectSet">
-									<select id="selectGender">
-										<option value="1">전체</option>
-										<option value="2">남자</option>
-										<option value="3">여자</option>
+								<span>
+									<%
+										String gender = request.getParameter("gender");
+										System.out.println(gender);
+										if(gender == null) gender = "1";
+									%>
+									<select class="gender" onchange="if(this.value) location.href=(this.value);">
+										<option value="best?action=list_3&site=k&gender=1" <%=gender.equals("1")||gender==null?"selected":""%>>전체</option>
+										<option value="best?action=list_3&site=k&gender=2" <%=gender.equals("2")?"selected":""%>>남자</option>
+										<option value="best?action=list_3&site=k&gender=3" <%=gender.equals("3")?"selected":""%>>여자</option>
 									</select>
 								</span>
 							</td>

@@ -1,17 +1,19 @@
 package bookstore;
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.Part;
 import org.apache.commons.beanutils.BeanUtils;
 
 @WebServlet("/usercontrol")
@@ -34,7 +36,7 @@ public class usercontroller extends HttpServlet {
 		Method m;
 		String view = null;
 		if(action==null) {
-			action="main";
+			action="insert";
 		}
 		try {
 			m=this.getClass().getMethod(action, HttpServletRequest.class);
@@ -62,9 +64,6 @@ public class usercontroller extends HttpServlet {
 			BeanUtils.populate(u, request.getParameterMap());
 			dao.insert(u);
 		}catch(Exception e) {e.printStackTrace();}
-		return "redirect:/usercontrol?action=main";
-	}
-	public String main(HttpServletRequest request) {
 		return "guest/guest_index.jsp";
 	}
 }

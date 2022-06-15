@@ -123,7 +123,7 @@
 						<p class="writer"><br><br>세이카 료겐 지음 | 김윤경 옮김 | 모모 | 2022년 05월 09일 출간</p>
 						<p><br><br>상처뿐인 두 사람이 차가운 세상에 맞서 지켜낸 소중한 사랑의 순간!<br>“나는 네가 살았으면 좋겠어”<br>모든 걸 포기하려던 순간, 기적처럼 시작된 사랑에 관한 이야기</p>
 					</div>
-					<img src="../images/death.jpg">
+					<img src="http://localhost:8080/jwbook/images/death.jpg">
 				</a>
 			</li>
 			<li class="slideitem">
@@ -134,7 +134,7 @@
 						<p class="writer"><br><br>오기와라 히로시 지음 | 권일영 옮김 | 모모 | 2021년 09월 26일 출간</p>
 						<p><br><br>소녀의 시체, 이마에 새겨진 R 표시, 그리고 사라진 발목⋯⋯.<br>쉴 틈 없이 몰아치는 이야기, 예상을 배신하는 범인의 정체,<br>입소문이 그리고 당신이 만날 수 있는 최고의 반전이 마지막에 기다린다!</p>
 					</div>
-					<img src="../images/rumor.jpg">
+					<img src="http://localhost:8080/jwbook/images/rumor.jpg">
 				</a>
 			</li>
 			<li class="slideitem">
@@ -145,7 +145,7 @@
 						<p class="writer"><br><br>김호연 지음 | 나무옆의자 | 2021년 04월 20일 출간</p>
 						<p><br><br>불편한데 자꾸 가고 싶은 편의점이 있다!<br>15만 독자를 사로잡은 가슴 뭉클한 위로와 울림<br>힘겨운 오늘을 살아가는 우리들에게 다가온 조금 특별한 편의점 이야기</p>
 					</div>
-					<img src="../images/store.jpg">
+					<img src="http://localhost:8080/jwbook/images/store.jpg">
 				</a>
 			</li>
 			<li class="slideitem">
@@ -157,7 +157,7 @@
 						<p class="writer"><br><br>이미예 지음 | 팩토리나인 | 2020년 07월 08일 출간</p>
 						<p><br><br>‘무의식에서만 존재하는 꿈을 정말 사고 팔 수 있을까?’라는 기발한 질문에 <br>답을 찾아가며, 꿈을 만드는 사람, 파는 사람, 사는 사람의 <br>비밀스런 에피소드를 담고 있는 판타지 소설</p>
 					</div>
-					<img src="../images/dream.jpeg">
+					<img src="http://localhost:8080/jwbook/images/dream.jpeg">
 				</a>
 			</li class="slideitem">
 			<li class="slideitem">
@@ -168,7 +168,7 @@
 						<p class="writer"><br><br>야쿠마루 가쿠 지음 | 김성미 옮김 | 북플라자 | 2017년 02월 02일 출간</p>
 						<p><br><br>15년 전 버려버린 과거에서 도착한 한 통의 편지가 <br>봉인해 둔 기억을 되살아나게 한다!<br>“그들은 지금 교도소에서 나왔습니다!”</p>
 					</div>
-					<img src="../images/promise.jpg">
+					<img src="http://localhost:8080/jwbook/images/promise.jpg">
 				</a>
 			</li>
 			<!-- 좌,우 슬라이드 버튼 -->

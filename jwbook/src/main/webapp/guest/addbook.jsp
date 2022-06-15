@@ -14,7 +14,7 @@
 	MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, 
 			new DefaultFileRenamePolicy());
 
-	String bookid = multi.getParameter("bookid");
+	int bookid = Integer.parseInt(multi.getParameter("bookid"));
 	String name = multi.getParameter("name");
 	String writer = multi.getParameter("writer");
 	String category = multi.getParameter("category");
@@ -29,25 +29,24 @@
 	String fname = (String) files.nextElement();
 	String img = multi.getFilesystemName(fname);
 	
-	Bookdao dao = Bookdao.getInstance();
+	Bookdao dao = new Bookdao();
 	
 	int bookId;
 	Integer price, stock;
-	if (bookid.isEmpty()) bookId = dao.getNumber()+1;
-	else bookId = Integer.parseInt(bookid);
+
 	if (unitprice.isEmpty()) price = 0;
 	else price = Integer.valueOf(unitprice);
 	if (unitstock.isEmpty()) stock = 0;
 	else stock = Integer.valueOf(unitstock);
 
 	book book = new book();
-	book.setBookid(bookId);
+	book.setBookid(bookid);
 	book.setName(name);
 	book.setWriter(writer);
 	book.setCategory(category);
 	book.setPublisher(publisher);
 	book.setReleaseDate(releaseDate);
-	book.setDescrip(description);
+	book.setDescript(description);
 	book.setPrice(price);
 	book.setStock(stock);
 	book.setSoldout(soldout);

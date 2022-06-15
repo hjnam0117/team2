@@ -20,7 +20,7 @@ public class bestcontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private Bookdao dao;
     private ServletContext ctx;
-    private final String START_PAGE = "guest/bestseller.jsp";
+    private final String START_PAGE = "guest/kbestseller.jsp";
     public void init(ServletConfig config) throws ServletException {
     	super.init(config);
     	dao = new Bookdao();
@@ -33,7 +33,7 @@ public class bestcontroller extends HttpServlet {
     	Method m;
     	String view = null;
     	if (action == null) {
-    		action = "listK";
+    		action = "list";
     	}
     	try {
     		m = this.getClass().getMethod(action, HttpServletRequest.class);
@@ -54,74 +54,53 @@ public class bestcontroller extends HttpServlet {
     		dispatcher.forward(request, response);
     	}
     }
-	public String listK(HttpServletRequest request) {
+	public String list(HttpServletRequest request) {
+		String _site = request.getParameter("site");
+		if (_site==null) _site = "k";
+		String site = _site + "rank";
 		String category = request.getParameter("category");
 		if (category==null) category="소설";
 		ArrayList<book> list;
 		try {			
-			list = dao.getKBestseller(category);
+			list = dao.getBestseller(site, category);
 			request.setAttribute("booklist", list);
 		} catch (Exception e) {
 			e.printStackTrace();
 			ctx.log("도서 목록 생성 과정에서 문제 발생!!");
 			request.setAttribute("error", "도서 목록이 정상적으로 처리되지 않았습니다!!");
 		}
-		return "guest/bestseller.jsp";
+		return "guest/"+_site+"bestseller.jsp";
 	}
-	public String listA(HttpServletRequest request) {
-		String category = request.getParameter("category");
-		if (category==null) category="소설";
+	public String list_2(HttpServletRequest request) {
+		String site = request.getParameter("site");
+		String age_ = request.getParameter("age");
+		String age = "age" + age_;
 		ArrayList<book> list;
+		System.out.println(site + age);
 		try {			
-			list = dao.getABestseller(category);
+			list = dao.getBestseller_2(site, age);
 			request.setAttribute("booklist", list);
 		} catch (Exception e) {
 			e.printStackTrace();
 			ctx.log("도서 목록 생성 과정에서 문제 발생!!");
 			request.setAttribute("error", "도서 목록이 정상적으로 처리되지 않았습니다!!");
 		}
-		return "guest/abestseller.jsp";
+		return "guest/"+site+"bestseller.jsp";
 	}
-	public String listP(HttpServletRequest request) {
-		String category = request.getParameter("category");
-		if (category==null) category="소설";
+	public String list_3(HttpServletRequest request) {
+		String site = request.getParameter("site");
+		String gen_ = request.getParameter("gender");
+		String gen = "gen" + gen_;
 		ArrayList<book> list;
 		try {			
-			list = dao.getPBestseller(category);
+			list = dao.getBestseller_3(gen);
 			request.setAttribute("booklist", list);
 		} catch (Exception e) {
 			e.printStackTrace();
 			ctx.log("도서 목록 생성 과정에서 문제 발생!!");
 			request.setAttribute("error", "도서 목록이 정상적으로 처리되지 않았습니다!!");
 		}
-		return "guest/pbestseller.jsp";
-	}
-	public String listI(HttpServletRequest request) {
-		String category = request.getParameter("category");
-		if (category==null) category="소설";
-		ArrayList<book> list;
-		try {			
-			list = dao.getIBestseller(category);
-			request.setAttribute("booklist", list);
-		} catch (Exception e) {
-			e.printStackTrace();
-			ctx.log("도서 목록 생성 과정에서 문제 발생!!");
-			request.setAttribute("error", "도서 목록이 정상적으로 처리되지 않았습니다!!");
-		}
-		return "guest/ibestseller.jsp";
-	}
-	public String listY(HttpServletRequest request) {
-		String category = request.getParameter("category");
-		if (category==null) category="소설";
-		ArrayList<book> list;
-		try {			
-			list = dao.getYBestseller(category);
-			request.setAttribute("booklist", list);
-		} catch (Exception e) {
-			e.printStackTrace();
-			ctx.log("도서 목록 생성 과정에서 문제 발생!!");
-			request.setAttribute("error", "도서 목록이 정상적으로 처리되지 않았습니다!!");
-		}
-		return "guest/ybestseller.jsp";
+		request.setAttribute("gender", gen_);
+		return "guest/"+site+"bestseller.jsp";
 	}
 }
