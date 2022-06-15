@@ -171,7 +171,7 @@ kbestseller.jsp, abestseller.jsp, pbestseller.jsp, ibestseller.jsp, ybestseller.
 
 6 회원가입 후 로그인 안됨 -> login.jsp loginForm.action=절대경로로 바꿔서 해결
 
-7 register.jsp form태그에 enctype="multipart/form-data" 없으면 추가
+7 register.jsp form태그에 enctype="multipart/form-data" 없으면 추가, addbook.jsp 
 
 
 -- 도서등록 관리자만 접근하도록 구현 중 -> id 받아와서 관리자 계정인지 확인하도록 구현할 것
