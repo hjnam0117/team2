@@ -142,3 +142,33 @@ book db 칼럼추가, db 연결, 이미지 c:/temp 등록, 서블릿에서 jsp �
 2 guest_top.jsp 베스트셀러 접근 경로 변경
 
 3 사이트별 베스트셀러 가져오는 함수 추가 (Bookdao, bestcontroller 수정)
+
+6/15
+
+1 Bookdao.java 사이트별, 연령별, 성별 베스트셀러 구하는 함수 
+
+Bookdao.java : getBestseller, getBestseller_2, getBestseller_3 수정
+
+bestcontroller.java : list, list_2, list_3 수정
+
+2 rank book 클래스에서 분리 
+
+book.java rank 제거 -> book db에서 rank 제거 
+
+alter table book drop column(rank);
+
+rank.java 생성 -> rank db 생성 (book db에서 bookid 참조)
+
+create table rank(bookid int primary key, krank int , arank int, prank int, irank int, yrank int, age1 int, age2 int, age3 int, age4 int, age5 int, age6 int, gen1 int, gen2 int, foreign key(bookid) references book(bookid));
+
+3 사이트별, 연령별, 성별 베스트셀러 따로 구현 완료
+
+kbestseller.jsp, abestseller.jsp, pbestseller.jsp, ibestseller.jsp, ybestseller.jsp
+
+4 로그인 후 banner.jsp 사진 안뜸 -> 절대경로로 수정 해결
+
+5 전문쇼핑몰 클릭 -> 홈페이지 (a 태그 추가)
+
+6 회원가입 후 로그인 안됨 -> login.jsp loginForm.action=절대경로로 바꿔서 해결
+
+7 register.jsp form태그에 enctype="multipart/form-data" 없으면 추가
