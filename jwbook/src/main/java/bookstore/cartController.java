@@ -81,7 +81,7 @@ public class cartController extends HttpServlet {
 			ctx.log("도서 목록 생성 과정에서 문제 발생!!");
 			request.setAttribute("error", "도서 목록이 정상적으로 처리되지 않았습니다!!");
 		}
-		return "./member/cart.jsp";
+		return "guest/cart.jsp";
 	}
     
     

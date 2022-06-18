@@ -13,6 +13,14 @@
 </head>
 <body>
 	<%@ include file="guest_top.jsp" %>
+	<%
+	String url = request.getQueryString().toString();
+	int i = url.indexOf("bookid=")+7;
+	int bookid = Integer.parseInt(url.substring(i));
+	System.out.println(bookid);
+	Bookdao book = new Bookdao();
+	book b = book.getBook(bookid);
+	%> 
 	<div class="jumbotron">
 		<div class="container">
 			<h1>도서 정보</h1>
@@ -25,6 +33,7 @@
 			</div>
 			<div class="col-md-8">
 				<h4><b>[${book.category}] ${book.name}</b></h4><br>
+				
 				<p>${book.descript}</p>
 				<p><b>도서 번호</b> : ${book.bookid}</p>
 				<p><b>도서 저자</b> : ${book.writer}</p>
@@ -32,11 +41,11 @@
 				<p><b>출판일</b> : ${book.releaseDate}</p>
 				<p><b>도서 재고</b> : ${book.stock}</p><br>
 				<h4>${book.price} 원</h4><br>
-				<p><a href="cart?action=insertCart" class="btn btn-info">구매하기 &raquo;</a> 
+				<p><a href="cart?action=insertCart&bookid=${book.bookid}" class="btn btn-info">구매하기 &raquo;</a> 
 				<a href="book?acton=listBook" class="btn btn-secondary">전체도서 &raquo;</a></p><br>
 			</div>
 		<br><hr></div>
 	</div>
-	<%@ include file="guest_bottom.jsp" %>   
+	<%@ include file="guest_bottom.jsp" %>  
 </body>
 </html>
