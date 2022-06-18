@@ -35,7 +35,8 @@
 			String name = rs.getString("pw");
 			
 			session.setAttribute("id", id);
-			session.setAttribute("pw", pw);	
+			session.setAttribute("pw", pw);
+			
 			response.sendRedirect("guest_index.jsp"); // 페이지이동
 			
 		} else{ // 로그인 실패

@@ -37,8 +37,13 @@ function funcLogin(){
 <body>
 <%
 if(id !=null){
+	if(id.equals("admin")){
 %>
-     <b><%=id %></b>님 환영합니다<p/>
+	<b>관리자</b>
+	<%}else{ %>
+     <b><%=id %></b>
+	<%}%>
+	 님 환영합니다<p/>
      준비된 기능을 사용할 수 있습니다.
      <a href="logout.jsp">로그아웃</a>
 <%}else{%>
@@ -64,6 +69,7 @@ if(id !=null){
      </form>
 <%   
 }
+session.setAttribute("id", id);
 %>
 </body>
 </html>

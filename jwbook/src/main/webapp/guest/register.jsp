@@ -17,6 +17,12 @@
 <script type="text/javascript" src="../resources/js/validation.js"></script>
 </head>
 <body>
+<%
+	String id = (String)session.getAttribute("id");
+	if(id==null||!id.equals("admin")){
+		response.sendRedirect("registererror.jsp");
+	}
+%>
 	<%@ include file="guest_top.jsp" %>
 	<div class="jumbotron">
 		<div class="container">

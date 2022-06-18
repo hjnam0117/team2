@@ -94,6 +94,7 @@
 </head>
 <body>
 <table>
+<tr height="40"></tr>
 <tr>
 	<td width="80"></td>
 	<td><div>
@@ -116,7 +117,7 @@
 		<ul class="slidelist">
 			<!-- 슬라이드 영역 -->
 			<li class="slideitem">
-				<a>
+				<a href="http://localhost:8080/jwbook/book?action=getBook&bookid=4">
 					<div class="textbox">
 						<p class="category"><br>소설 > 일본소설</p>
 						<h3>어느 날, 내 죽음에 네가 들어왔다</h3>
@@ -127,7 +128,7 @@
 				</a>
 			</li>
 			<li class="slideitem">
-				<a>
+				<a href="http://localhost:8080/jwbook/book?action=getBook&bookid=7">
 					<div class="textbox">
 						<p class="category"><br>소설 > 미스터리/스릴러소설</p>
 						<h3>소문</h3>
@@ -138,7 +139,7 @@
 				</a>
 			</li>
 			<li class="slideitem">
-				<a>
+				<a href="http://localhost:8080/jwbook/book?action=getBook&bookid=8">
 					<div class="textbox">
 						<p class="category"><br>소설 > 한국소설</p>
 						<h3>불편한 편의점</h3>
@@ -149,7 +150,7 @@
 				</a>
 			</li>
 			<li class="slideitem">
-				<a>
+				<a href="http://localhost:8080/jwbook/book?action=getBook&bookid=5">
 					<div class="textbox">
 						<p class="category"><br>소설 > 판타지소설</p>
 						<h3>달러구트 꿈 백화점</h3>
@@ -161,7 +162,7 @@
 				</a>
 			</li class="slideitem">
 			<li class="slideitem">
-				<a>
+				<a href="http://localhost:8080/jwbook/book?action=getBook&bookid=6">
 					<div class="textbox">
 						<p class="category"><br>소설 > 미스터리/스릴러소설</p>
 						<h3>돌이킬 수 없는 약속</h3>						
