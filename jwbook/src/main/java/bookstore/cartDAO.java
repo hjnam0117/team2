@@ -12,7 +12,7 @@ import bookstore.cart;
 
 public class cartDAO {
 	private static cartDAO _dao;
-	
+	private static int count = 0;
 	static {
 		_dao = new cartDAO();
 	}
@@ -39,24 +39,23 @@ public class cartDAO {
 		try {
 			pstmt.close();
 			conn.close();
-			rs.close();
+
 		}catch(SQLException e) {e.printStackTrace();}
 	}
 	
-	public int insertCart(cart cart) {
+	public int insertCart(book b) {
 		int rows = 0;
 		try {
 			Connection conn=open();
+			count++;
 			String sql =
-					"INSERT INTO cart(cartid, bookid, bookname, bookwriter, bookcount, totalprice) values(?,?,?,?,?,?)";
+			"INSERT INTO cart(cartid, bookid, bookname, bookwriter, bookcount, totalprice) values(?,?,?,?,1,?)";
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, cart.getBookid());
-			pstmt.setString(2,  cart.getBookname());
-			pstmt.setString(3,  cart.getBookwriter());
-			pstmt.setInt(4, cart.getBookcount());
-			pstmt.setInt(5, cart.getTotalprice());
-			pstmt.setInt(6, cart.getCartid());
-			
+			pstmt.setInt(1, count);
+			pstmt.setInt(2, b.getBookid());
+			pstmt.setString(3,  b.getName());
+			pstmt.setString(4,  b.getWriter());
+			pstmt.setInt(5, b.getPrice());
 			rows = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("Cart 테이블 insert 오류 => " + e.getMessage());
@@ -121,25 +120,25 @@ public class cartDAO {
 	}
 	
 
-	public List<cart> selectAllCartList(int cartid) {
+	public ArrayList<cart> selectAllCartList() {
 
-		List<cart> list = new ArrayList<cart>();
+		ArrayList<cart> list = new ArrayList<cart>();
 		try {
 			Connection conn=open();
 
-			String sql = "select * from cart where cartid = ? id=?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, cartid);
+			String sql = "select * from cart";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				cart cart = new cart();
+				cart.setCartid(rs.getInt("cartid"));
 				cart.setBookid(rs.getInt("bookid"));
-				cart.setId(rs.getString("id"));
 				cart.setBookname(rs.getString("bookname"));
 				cart.setBookcount(rs.getInt("bookcount"));
 				cart.setTotalprice(rs.getInt("totalprice"));
+				System.out.println(cart.getBookid());
 				list.add(cart);
 			}
 		} catch (SQLException e) {

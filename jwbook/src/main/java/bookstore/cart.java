@@ -8,6 +8,18 @@ public class cart {
 	private int bookcount;//주문 수량
 	private int totalprice;//가격
 	private String id;
+	
+	public cart() {}
+	public cart(int cartid, int bookid, String bookname, String bookwriter, int bookcount, int totalprice, String id) {
+		super();
+		this.cartid=cartid;
+		this.bookid=bookid;
+		this.bookname=bookname;
+		this.bookwriter=bookwriter;
+		this.totalprice=totalprice;
+		this.bookcount=bookcount;
+	}
+
 	public int getBookid() {
 		return bookid;
 	}

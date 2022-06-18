@@ -14,7 +14,7 @@
           <td><a href="http://localhost:8080/jwbook/best?action=list&site=k&category=소설">베스트 셀러</a></td>
           <td><a href="http://localhost:8080/jwbook/book?acton=listBooks">도서 목록</a></td>
           <td><a href="http://localhost:8080/jwbook/guest/register.jsp">도서 등록</a></td>
-          <td><a href="http://localhost:8080/jwbook/member/cart.jsp">장바구니</a></td>
+          <td><a href="http://localhost:8080/jwbook/cart/cart.jsp">장바구니</a></td>
           <td><a href="guest/oderlist.jsp">주문 내역</a></td>
      </tr>
 </table>
