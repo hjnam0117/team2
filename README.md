@@ -175,3 +175,17 @@ kbestseller.jsp, abestseller.jsp, pbestseller.jsp, ibestseller.jsp, ybestseller.
 
 
 -- 도서등록 관리자만 접근하도록 구현 중 -> id 받아와서 관리자 계정인지 확인하도록 구현할 것
+
+6/18
+
+1 login.jsp 수정
+
+아이디 "admin"이면 id 대신 "관리자" 뜨도록 수정
+
+session에 id 저장
+
+2 register.jsp 수정
+
+session에서 id 받아와서 null이거나 "admin" 아니면 (관리자 계정 아니면) registererror.jsp로 넘어감
+
+registererror.jsp 추가 (alert창 띄우고 메인페이지(로그인)로  이동)
