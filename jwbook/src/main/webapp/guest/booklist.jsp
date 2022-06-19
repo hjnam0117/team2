@@ -15,6 +15,10 @@
 </head>
 <body>
 	<%@ include file="guest_top.jsp" %>
+	<%
+	String id = (String) session.getAttribute("id");
+	session.setAttribute("id", id);
+	%>
 	<div class="jumbotron">
 		<div class="container">
 			<h1>전체 도서</h1>

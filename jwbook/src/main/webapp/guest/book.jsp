@@ -14,6 +14,7 @@
 <body>
 	<%@ include file="guest_top.jsp" %>
 	<%
+	String id = (String) session.getAttribute("id");
 	String url = request.getQueryString().toString();
 	int i = url.indexOf("bookid=")+7;
 	int bookid = Integer.parseInt(url.substring(i));
