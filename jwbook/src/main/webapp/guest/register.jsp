@@ -25,7 +25,7 @@
 %>
 	<%@ include file="guest_top.jsp" %>
 	<div class="jumbotron">
-		<div class="container">
+		<div class="container" align="center">
 			<h1>도서 등록</h1>
 		</div>
 	</div>

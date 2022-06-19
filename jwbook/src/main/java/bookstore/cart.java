@@ -7,7 +7,7 @@ public class cart {
 	private String bookwriter;//작가
 	private int bookcount;//주문 수량
 	private int totalprice;//가격
-	private String id;
+	private String userid;
 	
 	public cart() {}
 	public cart(int cartid, int bookid, String bookname, String bookwriter, int bookcount, int totalprice, String id) {
@@ -50,11 +50,11 @@ public class cart {
 	public void setTotalprice(int totalprice) {
 		this.totalprice = totalprice;
 	}
-	public String getId() {
-		return id;
+	public String getUserId() {
+		return userid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setUserId(String userid) {
+		this.userid = userid;
 	}
 	public int getCartid() {
 		return cartid;

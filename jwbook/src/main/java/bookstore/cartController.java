@@ -22,7 +22,7 @@ public class cartController extends HttpServlet {
 	
     private cartDAO dao;
     private ServletContext ctx;
-    private final String START_PAGE = "cart/cart.jsp";
+    private final String START_PAGE = "guest/cart.jsp";
     
     public void init(ServletConfig config) throws ServletException {
     	super.init(config);

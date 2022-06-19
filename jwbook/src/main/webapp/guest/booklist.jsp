@@ -20,7 +20,7 @@
 	session.setAttribute("id", id);
 	%>
 	<div class="jumbotron">
-		<div class="container">
+		<div class="container" align="center">
 			<h1>전체 도서</h1>
 		</div>
 	</div>

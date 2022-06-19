@@ -5,12 +5,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	// 세션의 고유 아이디를 가져온다.
-	String cartId = session.getId();
+	String id = (String) session.getAttribute("id");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="/css/bootstrap.min.css" />
+<link rel="Stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <title>장바구니</title>
 <style>
 	th, td{padding:15px;}
@@ -60,14 +63,18 @@ function fnClear(){
 <body>
 	<jsp:include page="../guest/guest_top.jsp" />
 	<%
-	String id = (String)session.getAttribute("id");
+	id = (String)session.getAttribute("id");
 	if(id==null||id.equals("admin")){
 		response.sendRedirect("http://localhost:8080/jwbook/guest/carterror.jsp");
 	}
 	session.setAttribute("id", id);
 	%>
 <div align="center" class="rows">
-	<h3>[장바구니 보기]</h3>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>장바구니</h1>
+		</div>
+	</div>
 	<table border="1" width="40%" id='carts'>
 		<tr>
 			<th>카트 번호</th>
@@ -91,7 +98,7 @@ function fnClear(){
 		</c:forEach>
 		<tr align = 'center'>
 			<td colspan= '3'>
-				<input type='button' value='결제하기' />
+				<input type='button' value='결제하기' onclick = "location.href = 'http://localhost:8080/jwbook/guest/shoppingInfo.jsp?<%=id%>'"/>
 				<input type='button' value='장바구니 비우기' onclick='fnClear()' />
 				<input type='button' value='쇼핑 계속하기' onclick = "location.href = '../book?action=listBooks'">
 			</td>

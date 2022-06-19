@@ -26,7 +26,7 @@
 <body>
 	<%@ include file="guest_top.jsp" %>
 	<div class="jumbotron">
-		<div class="container">
+		<div class="container" align="center">
 			<h1>베스트 셀러</h1>
 		</div>
 	</div>
